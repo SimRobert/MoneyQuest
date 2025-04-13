@@ -1,65 +1,25 @@
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-    <meta charset="UTF-8">
-    <title>Rezultatul tău</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f2f4f8;
-            color: #333;
-            padding: 40px;
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            max-width: 700px;
-            margin: auto;
-            border-radius: 12px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #222;
-        }
-        .answer {
-            padding: 12px;
-            background: #f9f9f9;
-            border-left: 4px solid #007bff;
-            margin-bottom: 12px;
-            border-radius: 4px;
-        }
-        .score-summary {
-            text-align: center;
-            margin-top: 30px;
-        }
-        .score-summary p {
-            font-size: 1.2em;
-        }
-        .feedback {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #28a745;
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>Rezultatul tău</h2>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            Rezultatul tău
+        </h2>
+    </x-slot>
 
-        @foreach ($answers as $answer)
-            <div class="answer">
-                Scenariul #{{ $answer['scenario_id'] }}: ai ales opțiunea #{{ $answer['option_id'] }} (Scor: {{ $answer['score'] }})
+    <div class="py-12">
+        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white p-6 shadow rounded-lg">
+                <h3 class="text-lg font-semibold mb-4">Scor final: {{ $totalScore }}</h3>
+                <p class="text-gray-700">{{ $feedback }}</p>
+
+                <div class="mt-6">
+                    <h4 class="font-semibold mb-2">Răspunsuri:</h4>
+                    <ul class="list-disc ml-6">
+                        @foreach ($answers as $answer)
+                            <li>Scenariul #{{ $answer['scenario_id'] }}, opțiunea #{{ $answer['option_id'] }} (Scor: {{ $answer['score'] }})</li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
-        @endforeach
-
-        <div class="score-summary">
-            <hr>
-            <p>Scor total: <strong>{{ $totalScore }}</strong></p>
-            <p class="feedback">{{ $feedback }}</p>
         </div>
     </div>
-</body>
-</html>
+</x-app-layout>

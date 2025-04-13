@@ -1,67 +1,49 @@
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-    <meta charset="UTF-8">
-    <title>Întrebarea #{{ $step }}</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f2f4f8;
-            color: #333;
-            padding: 40px;
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            max-width: 600px;
-            margin: auto;
-            border-radius: 12px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            margin-bottom: 10px;
-        }
-        form {
-            margin-top: 20px;
-        }
-        .option {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-        .option input[type="radio"] {
-            margin-right: 10px;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>Întrebarea #{{ $step }}</h2>
-        <p>{{ $scenario['text'] }}</p>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            Întrebarea #{{ $step }}
+        </h2>
+    </x-slot>
 
-        <form method="POST" action="{{ route('game.submit', $step) }}">
-            @csrf
-            <input type="hidden" name="scenario_id" value="{{ $scenario['id'] }}">
-            @foreach ($scenario['options'] as $option)
-                <div class="option">
-                    <input type="radio" name="option_id" value="{{ $option['id'] }}" required>
-                    <label>{{ $option['text'] }}</label>
+    <div class="py-12">
+        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
+
+                {{-- 🔢 Scoruri curente --}}
+                @php
+                    $stats = session('stats', ['money' => 0, 'happiness' => 0, 'savings' => 0, 'debt' => 0]);
+                @endphp
+
+                <div class="mb-6 p-4 bg-gray-100 border rounded-lg text-sm text-gray-800 shadow-sm">
+                    <strong>Statistici curente:</strong><br>
+                    💰 Bani: {{ $stats['money'] }} RON &nbsp;|&nbsp;
+                    😊 Fericire: {{ $stats['happiness'] }} &nbsp;|&nbsp;
+                    🏦 Economii: {{ $stats['savings'] }} RON &nbsp;|&nbsp;
+                    📉 Datorii: {{ $stats['debt'] }} RON
                 </div>
-            @endforeach
 
-            <button type="submit">Continuă →</button>
-        </form>
+                {{-- 📋 Intrebare si optiuni --}}
+                <h3 class="text-lg font-semibold mb-4">{{ $scenario->description }}</h3>
+
+                <form action="{{ route('game.store', $step) }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="scenario_id" value="{{ $scenario->id }}">
+
+                    @foreach ($scenario->options as $option)
+                        <div class="mb-2">
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="option_id" value="{{ $option->id }}" class="form-radio" required>
+                                <span class="ml-2">{{ $option->text }}</span>
+                            </label>
+                        </div>
+                    @endforeach
+
+                    <div class="mt-4">
+                        <x-primary-button>Continuă →</x-primary-button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
     </div>
-</body>
-</html>
+</x-app-layout>

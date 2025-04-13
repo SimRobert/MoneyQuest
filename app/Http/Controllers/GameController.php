@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Scenario;
+use App\Models\Option;
 
 class GameController extends Controller
 {
@@ -14,41 +16,32 @@ class GameController extends Controller
     public function show($step)
     {
         if (!is_numeric($step)) {
-            abort(404); // Protecție contra accesării cu text
+            abort(404);
         }
 
-        if ((int)$step === 1) {
-            session()->forget('answers'); // Resetăm sesiunea la început
+        $step = (int)$step;
+
+        if ($step === 1) {
+            session()->forget('answers');
+            
+            session()->put('stats', [
+                'money' => 0,
+                'happiness' => 0,
+                'savings' => 0,
+                'debt' => 0,
+            ]);
+        }        
+
+        // Luăm toate scenariile cu opțiuni
+        $scenarios = Scenario::with('options')->get();
+
+        $index = $step - 1;
+
+        if (!isset($scenarios[$index])) {
+            return redirect()->route('game.result');
         }
 
-        $mockScenarios = [
-            [
-                'id' => 1,
-                'text' => 'Ai 500 RON disponibili. Ce faci cu ei?',
-                'options' => [
-                    ['id' => 1, 'text' => 'Îi economisesc', 'score' => 10],
-                    ['id' => 2, 'text' => 'Îi cheltui pe haine', 'score' => 2],
-                    ['id' => 3, 'text' => 'Îi investesc în crypto', 'score' => 5],
-                ]
-            ],
-            [
-                'id' => 2,
-                'text' => 'Primești un bonus lunar de 800 RON. Ce faci?',
-                'options' => [
-                    ['id' => 4, 'text' => 'Îl pun deoparte pentru concediu', 'score' => 8],
-                    ['id' => 5, 'text' => 'Îl folosesc pentru o cină fancy', 'score' => 3],
-                    ['id' => 6, 'text' => 'Îl donez', 'score' => 6],
-                ]
-            ]
-        ];
-
-        $index = (int)$step - 1;
-
-        if (!isset($mockScenarios[$index])) {
-            return redirect()->route('result');
-        }
-
-        $scenario = $mockScenarios[$index];
+        $scenario = $scenarios[$index];
 
         return view('step', [
             'step' => $step,
@@ -58,16 +51,29 @@ class GameController extends Controller
 
     public function submit(Request $request, $step)
     {
-        $mockScores = [
-            1 => 10,
-            2 => 2,
-            3 => 5,
-            4 => 8,
-            5 => 3,
-            6 => 6,
-        ];
+        $option = Option::find($request->option_id);
 
-        $score = $mockScores[$request->option_id] ?? 0;
+        // Update scoruri curente
+        $stats = session('stats', [
+            'money' => 0,
+            'happiness' => 0,
+            'savings' => 0,
+            'debt' => 0,
+        ]);
+
+        $stats['money'] += $option->effect_money ?? 0;
+        $stats['happiness'] += $option->effect_happiness ?? 0;
+        $stats['savings'] += $option->effect_savings ?? 0;
+        $stats['debt'] += $option->effect_debt ?? 0;
+
+        session()->put('stats', $stats);
+
+        if (!$option) {
+            return redirect()->back()->withErrors(['option_id' => 'Opțiunea selectată nu există.']);
+        }
+
+        // Score-ul poate fi oricare din efectele dorite; aici luam doar effect_happiness pentru exemplu
+        $score = $option->effect_happiness ?? 0;
 
         session()->push('answers', [
             'scenario_id' => $request->scenario_id,
@@ -77,8 +83,9 @@ class GameController extends Controller
 
         $nextStep = (int)$step + 1;
 
-        if ($nextStep > 2) {
-            return redirect()->route('game.result');
+        $totalScenarios = Scenario::count();
+        if ($nextStep > $totalScenarios) {
+            return redirect()->route('result');
         }
 
         return redirect()->route('game.step', $nextStep);
