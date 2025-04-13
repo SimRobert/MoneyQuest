@@ -9,9 +9,9 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/game', [GameController::class, 'index'])->name('game.index');
+    Route::get('/game/result', [GameController::class, 'result'])->name('game.result');
     Route::get('/game/{step}', [GameController::class, 'show'])->name('game.step');
     Route::post('/game/{step}', [GameController::class, 'submit'])->name('game.store');
-    Route::get('/game/result', [GameController::class, 'result'])->name('game.result');
 });
 
 
