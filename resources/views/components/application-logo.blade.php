@@ -1,0 +1,1 @@
+<img src="{{ asset('images/moneyquest-logo.png') }}" alt="Money Quest Logo" class="h-20 mx-auto">
