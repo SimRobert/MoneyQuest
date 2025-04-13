@@ -33,7 +33,7 @@ class GameController extends Controller
         }        
 
         // Luăm toate scenariile cu opțiuni
-        $scenarios = Scenario::with('options')->get();
+        $scenarios = Scenario::with('options')->inRandomOrder()->limit(10)->get();
 
         $index = $step - 1;
 
