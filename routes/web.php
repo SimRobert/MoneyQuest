@@ -2,6 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
+use Illuminate\Http\Request;
+
+Route::middleware(['auth'])->group(function () {
+    // ... alte rute deja existente ...
+
+    Route::post('/save-budget', function (Request $request) {
+        $request->validate([
+            'budget' => 'required|numeric|min:0',
+        ]);
+
+        session(['user_budget' => $request->budget]);
+
+        return redirect()->back()->with('success', 'Bugetul a fost salvat!');
+    })->name('save-budget');
+});
+
 
 Route::get('/', function () {
     return view('dashboard');

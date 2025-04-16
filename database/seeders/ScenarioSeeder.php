@@ -13,7 +13,7 @@ class ScenarioSeeder extends Seeder
     {
         $scenario2 = Scenario::create([
             'title' => 'Party vineri seara cu manelist celebru',
-            'description' => 'Se organizează o petrecere într-un club. Intrarea e 50 RON, băuturile extra.'
+            'description' => 'Party vineri seara cu manelist celebru. Se organizează o petrecere într-un club. Intrarea e 50 RON, băuturile extra.'
         ]);
         
         $scenario2->options()->createMany([
@@ -42,7 +42,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario3 = Scenario::create([
             'title' => 'Prietenii vor la restaurant, tu ai mâncare acasă',
-            'description' => 'Ieșirea costă cam 60 RON. Ai deja gătit acasă, dar e tentant.'
+            'description' => 'Prietenii vor la restaurant, tu ai mâncare acasă. Ieșirea costă cam 60 RON. Ai deja gătit acasă, dar e tentant.'
         ]);
         
         $scenario3->options()->createMany([
@@ -71,7 +71,7 @@ class ScenarioSeeder extends Seeder
 
         $scenario4 = Scenario::create([
             'title' => 'Trebuie să-ți plătești chiria',
-            'description' => 'Mai ai 3 zile până la scadență și vezi o reducere la un gadget. Ce alegi?',
+            'description' => 'Trebuie să-ți plătești chiria. Mai ai 3 zile până la scadență și vezi o reducere la un gadget. Ce alegi?',
         ]);
         
         $scenario4->options()->createMany([
@@ -100,7 +100,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario5 = Scenario::create([
             'title' => 'Ai primit 100 RON de la părinți pentru orice vrei',
-            'description' => 'Cum gestionezi acești bani bonus?',
+            'description' => 'Ai primit 100 RON de la părinți pentru orice vrei. Cum gestionezi acești bani bonus?',
         ]);
         
         $scenario5->options()->createMany([
@@ -129,7 +129,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario6 = Scenario::create([
             'title' => 'Vrei să-ți cumperi căști wireless de 250 RON',
-            'description' => 'Nu ai mare nevoie, dar îți plac. Le cumperi?',
+            'description' => 'Vrei să-ți cumperi căști wireless de 250 RON. Nu ai mare nevoie, dar îți plac. Le cumperi?',
         ]);
         
         $scenario6->options()->createMany([
@@ -158,7 +158,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario7 = Scenario::create([
             'title' => 'Ai de ales între spălatul hainelor acasă sau la spălătorie',
-            'description' => 'Spălătoria costă 30 RON și e mai comod.',
+            'description' => 'Ai de ales între spălatul hainelor acasă sau la spălătorie. Spălătoria costă 30 RON și e mai comod.',
         ]);
         
         $scenario7->options()->createMany([
@@ -187,7 +187,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario8 = Scenario::create([
             'title' => 'Ai dureri de cap, dar nu ai medicamente',
-            'description' => 'Cumperi o cutie de pastile (20 RON) sau aștepți?',
+            'description' => 'Ai dureri de cap, dar nu ai medicamente. Cumperi o cutie de pastile (20 RON) sau aștepți?',
         ]);
         
         $scenario8->options()->createMany([
@@ -216,7 +216,7 @@ class ScenarioSeeder extends Seeder
 
         $scenario9 = Scenario::create([
             'title' => 'Vrei să mergi acasă în weekend',
-            'description' => 'Drumul costă 70 RON. Îți e dor de familie, dar ai și proiecte de făcut și bani limitați.',
+            'description' => 'Vrei să mergi acasă în weekend. Drumul costă 70 RON. Îți e dor de familie, dar ai și proiecte de făcut și bani limitați.',
         ]);
         $scenario9->options()->createMany([
             ['text' => 'Merg acasă – timpul cu familia e prioritar.', 'effect_money' => -70, 'effect_happiness' => 10, 'effect_debt' => 0, 'effect_savings' => 0],
@@ -226,7 +226,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario10 = Scenario::create([
             'title' => 'Apartament mai aproape de facultate',
-            'description' => 'Găsești un apartament mai aproape, dar e cu 200 RON mai scump pe lună.',
+            'description' => 'Apartament mai aproape de facultate. Găsești un apartament mai aproape, dar e cu 200 RON mai scump pe lună.',
         ]);
         $scenario10->options()->createMany([
             ['text' => 'Mă mut – salvez timp și stres zilnic.', 'effect_money' => -200, 'effect_happiness' => 12, 'effect_debt' => 0, 'effect_savings' => 0],
@@ -236,7 +236,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario11 = Scenario::create([
             'title' => 'Ofertă la un curs online de 150 RON',
-            'description' => 'Te-ar ajuta în carieră, dar ai alte cheltuieli. Investiție sau aștepți?',
+            'description' => 'Ofertă la un curs online de 150 RON. Te-ar ajuta în carieră, dar ai alte cheltuieli. Investiție sau aștepți?',
         ]);
         $scenario11->options()->createMany([
             ['text' => 'Îl cumpăr – merită pe termen lung.', 'effect_money' => -150, 'effect_happiness' => 10, 'effect_debt' => 0, 'effect_savings' => 0],
@@ -246,7 +246,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario12 = Scenario::create([
             'title' => 'Reduceri la supermarket – 2+1 gratis',
-            'description' => 'Cumperi în avans, deși nu ai nevoie acum, sau păstrezi banii?',
+            'description' => 'Reduceri la supermarket – 2+1 gratis. Cumperi în avans, deși nu ai nevoie acum, sau păstrezi banii?',
         ]);
         $scenario12->options()->createMany([
             ['text' => 'Profit de ofertă – o să am pe viitor.', 'effect_money' => -60, 'effect_happiness' => 8, 'effect_debt' => 0, 'effect_savings' => 0],
@@ -256,7 +256,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario13 = Scenario::create([
             'title' => 'Ai spart folia de protecție de la telefon',
-            'description' => 'Cumperi una nouă (50 RON) sau aștepți până se sparge ecranul?',
+            'description' => 'Ai spart folia de protecție de la telefon. Cumperi una nouă (50 RON) sau aștepți până se sparge ecranul?',
         ]);
         $scenario13->options()->createMany([
             ['text' => 'Cumpăr folie nouă imediat.', 'effect_money' => -50, 'effect_happiness' => 6, 'effect_debt' => 0, 'effect_savings' => 0],
@@ -266,7 +266,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario14 = Scenario::create([
             'title' => 'Prietenul tău are nevoie urgentă de bani pentru spital',
-            'description' => 'Îi dai 100 RON din economii sau îl refuzi?',
+            'description' => 'Prietenul tău are nevoie urgentă de bani pentru spital. Îi dai 100 RON din economii sau îl refuzi?',
         ]);
         $scenario14->options()->createMany([
             ['text' => 'Îi dau – sănătatea e mai importantă.', 'effect_money' => -100, 'effect_happiness' => 10, 'effect_debt' => 0, 'effect_savings' => -100],
@@ -276,7 +276,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario15 = Scenario::create([
             'title' => 'Ai 3 produse în coșul online, dar eziți să comanzi',
-            'description' => 'Le cumperi acum, aștepți salariul sau le ștergi complet?',
+            'description' => 'Ai 3 produse în coșul online, dar eziți să comanzi. Le cumperi acum, aștepți salariul sau le ștergi complet?',
         ]);
         $scenario15->options()->createMany([
             ['text' => 'Finalizez comanda – îmi plac prea mult.', 'effect_money' => -120, 'effect_happiness' => 10, 'effect_debt' => 0, 'effect_savings' => 0],
@@ -285,7 +285,7 @@ class ScenarioSeeder extends Seeder
         ]);
         $scenario16 = Scenario::create([
             'title' => 'Prietenul tău îți cere 150 RON pentru internet',
-            'description' => 'Spune că îți va returna banii într-o săptămână. Tu mai ai doar 200 RON pentru toată luna.',
+            'description' => 'Prietenul tău îți cere 150 RON pentru internet. Spune că îți va returna banii într-o săptămână. Tu mai ai doar 200 RON pentru toată luna.',
         ]);
         $scenario16->options()->createMany([
             [ 'text' => 'Îi dai banii – contează mai mult prietenia.', 'effect_money' => -150, 'effect_happiness' => 9, 'effect_debt' => 0, 'effect_savings' => 0 ],
@@ -295,7 +295,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario17 = Scenario::create([
             'title' => 'Ai rămas fără bani și chiria vine peste 3 zile',
-            'description' => 'Te gândești să ceri împrumut 500 RON de la un prieten sau să iei un credit rapid online.',
+            'description' => 'Ai rămas fără bani și chiria vine peste 3 zile. Te gândești să ceri împrumut 500 RON de la un prieten sau să iei un credit rapid online.',
         ]);
         $scenario17->options()->createMany([
             [ 'text' => 'Împrumuți de la prieten – fără dobândă.', 'effect_money' => 0, 'effect_happiness' => 6, 'effect_debt' => 500, 'effect_savings' => 0 ],
@@ -305,7 +305,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario18 = Scenario::create([
             'title' => 'Prietenii vor să ieșiți în weekend, dar nu ai bani',
-            'description' => 'Te gândești să te împrumuți pentru a nu rămâne pe dinafară.',
+            'description' => 'Prietenii vor să ieșiți în weekend, dar nu ai bani.   Te gândești să te împrumuți pentru a nu rămâne pe dinafară.',
         ]);
         $scenario18->options()->createMany([
             [ 'text' => 'Te împrumuți și mergi cu ei – n-ai mai ieșit de mult.', 'effect_money' => -100, 'effect_happiness' => 10, 'effect_debt' => 100, 'effect_savings' => 0 ],
@@ -315,7 +315,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario19 = Scenario::create([
             'title' => 'Ai nevoie urgentă de un laptop nou pentru facultate',
-            'description' => 'Nu ai toți banii, dar poți lua unul în rate sau împrumut.',
+            'description' => 'Ai nevoie urgentă de un laptop nou pentru facultate. Nu ai toți banii, dar poți lua unul în rate sau împrumut.',
         ]);
         $scenario19->options()->createMany([
             [ 'text' => 'Cumperi în rate – lunar va fi o presiune.', 'effect_money' => 0, 'effect_happiness' => 10, 'effect_debt' => 2000, 'effect_savings' => 0 ],
@@ -324,8 +324,8 @@ class ScenarioSeeder extends Seeder
         ]);
         
         $scenario20 = Scenario::create([
-            'title' => 'Prietenul tău îți cere din nou bani – a treia oară',
-            'description' => 'Nu ți-a returnat complet datoriile anterioare, dar are din nou nevoie.',
+            'title' => 'Prietenul tău îți cere din nou bani a treia oară',
+            'description' => 'Prietenul tău îți cere din nou bani a treia oară. Nu ți-a returnat complet datoriile anterioare, dar are din nou nevoie.',
         ]);
         $scenario20->options()->createMany([
             [ 'text' => 'Îi dai iar – ai încredere că are nevoie reală.', 'effect_money' => -100, 'effect_happiness' => 6, 'effect_debt' => 0, 'effect_savings' => -100 ],
@@ -335,7 +335,7 @@ class ScenarioSeeder extends Seeder
 
         $scenario21 = Scenario::create([
             'title' => 'Ai nevoie urgentă de o vizită la spital',
-            'description' => 'Te simți rău și e recomandat un control. Cost estimativ: 150 RON.',
+            'description' => 'Ai nevoie urgentă de o vizită la spital. Te simți rău și e recomandat un control. Cost estimativ: 150 RON.',
         ]);
         $scenario21->options()->createMany([
             [ 'text' => 'Merg imediat – sănătatea e pe primul loc.', 'effect_money' => -150, 'effect_happiness' => 10, 'effect_debt' => 0, 'effect_savings' => 0 ],
@@ -345,7 +345,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario22 = Scenario::create([
             'title' => 'S-a rupt patul din cămin',
-            'description' => 'Administrația cere să-l repari sau înlocuiești tu. Cost: 250 RON.',
+            'description' => 'S-a rupt patul din cămin. Administrația cere să-l repari sau înlocuiești tu. Cost: 250 RON.',
         ]);
         $scenario22->options()->createMany([
             [ 'text' => 'Îl repari cu un tâmplar local.', 'effect_money' => -150, 'effect_happiness' => 7, 'effect_debt' => 0, 'effect_savings' => 100 ],
@@ -355,7 +355,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario23 = Scenario::create([
             'title' => 'Trebuie să plătești banchetul de final de an',
-            'description' => 'Costul este de 300 RON. E un moment unic, dar destul de scump.',
+            'description' => 'Trebuie să plătești banchetul de final de an. Costul este de 300 RON. E un moment unic, dar destul de scump.',
         ]);
         $scenario23->options()->createMany([
             [ 'text' => 'Plătești – nu vrei să ratezi ocazia.', 'effect_money' => -300, 'effect_happiness' => 12, 'effect_debt' => 0, 'effect_savings' => 0 ],
@@ -365,7 +365,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario24 = Scenario::create([
             'title' => 'Ai restanță la examen și trebuie să plătești taxa de reexaminare',
-            'description' => 'Costul este 100 RON. Bugetul e deja la limită.',
+            'description' => 'Ai restanță la examen și trebuie să plătești taxa de reexaminare. Costul este 100 RON. Bugetul e deja la limită.',
         ]);
         $scenario24->options()->createMany([
             [ 'text' => 'Plătești taxa – e important să treci.', 'effect_money' => -100, 'effect_happiness' => 7, 'effect_debt' => 0, 'effect_savings' => 0 ],
@@ -375,7 +375,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario25 = Scenario::create([
             'title' => 'Ți s-a stricat laptopul și ai deadline la proiect',
-            'description' => 'Ai de ales între reparație urgentă, închiriere sau apel la colegi.',
+            'description' => 'Ți s-a stricat laptopul și ai deadline la proiect. Ai de ales între reparație urgentă, închiriere sau apel la colegi.',
         ]);
         $scenario25->options()->createMany([
             [ 'text' => 'Îl repari imediat – 400 RON.', 'effect_money' => -400, 'effect_happiness' => 10, 'effect_debt' => 0, 'effect_savings' => 0 ],
@@ -385,7 +385,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario26 = Scenario::create([
             'title' => 'E iarnă și nu mai ai haine groase',
-            'description' => 'Ai de ales între un set nou, second hand sau împrumut.',
+            'description' => 'E iarnă și nu mai ai haine groase. Ai de ales între un set nou, second hand sau împrumut.',
         ]);
         $scenario26->options()->createMany([
             [ 'text' => 'Cumperi haine noi – 300 RON.', 'effect_money' => -300, 'effect_happiness' => 9, 'effect_debt' => 0, 'effect_savings' => 0 ],
@@ -395,7 +395,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario27 = Scenario::create([
             'title' => 'Ai primit o amendă de 200 RON pentru traversare neregulamentară',
-            'description' => 'Nu o poți contesta. Trebuie să alegi cum te descurci.',
+            'description' => 'Ai primit o amendă de 200 RON pentru traversare neregulamentară. Nu o poți contesta. Trebuie să alegi cum te descurci.',
         ]);
         $scenario27->options()->createMany([
             [ 'text' => 'O plătești imediat și înveți lecția.', 'effect_money' => -200, 'effect_happiness' => 6, 'effect_debt' => 0, 'effect_savings' => 0 ],
@@ -405,7 +405,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario28 = Scenario::create([
             'title' => 'Ai pierdut cardul bancar și trebuie înlocuit urgent',
-            'description' => 'Emiterea noului card costă 50 RON.',
+            'description' => 'Ai pierdut cardul bancar și trebuie înlocuit urgent. Emiterea noului card costă 50 RON.',
         ]);
         $scenario28->options()->createMany([
             [ 'text' => 'Plătești și îl recuperezi rapid.', 'effect_money' => -50, 'effect_happiness' => 7, 'effect_debt' => 0, 'effect_savings' => 0 ],
@@ -415,7 +415,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario29 = Scenario::create([
             'title' => 'Ți s-a stricat frigiderul din cameră',
-            'description' => 'Ai nevoie de el pentru alimentele tale. Cost reparație: 200 RON.',
+            'description' => 'Ți s-a stricat frigiderul din cameră. Ai nevoie de el pentru alimentele tale. Cost reparație: 200 RON.',
         ]);
         $scenario29->options()->createMany([
             [ 'text' => 'Îl repari imediat – ai mâncare perisabilă.', 'effect_money' => -200, 'effect_happiness' => 8, 'effect_debt' => 0, 'effect_savings' => 0 ],
@@ -425,7 +425,7 @@ class ScenarioSeeder extends Seeder
         
         $scenario30 = Scenario::create([
             'title' => 'Telefonul tău moare în mijlocul sesiunii',
-            'description' => 'Ai nevoie de el pentru comunicare cu colegii și profesori.',
+            'description' => 'Telefonul tău moare în mijlocul sesiunii. Ai nevoie de el pentru comunicare cu colegii și profesori.',
         ]);
         $scenario30->options()->createMany([
             [ 'text' => 'Îți iei un telefon ieftin la ofertă – 400 RON.', 'effect_money' => -400, 'effect_happiness' => 9, 'effect_debt' => 0, 'effect_savings' => 0 ],
